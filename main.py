@@ -73,7 +73,6 @@ class WebCrawl:
         #resWords.append(u" ".join(t.strip() for t in visible_text))
         #return(resWords)
 
-print('Heallo World!')
 if (__name__ == "__main__"):
 
     directory = os.getcwd() + '/crawled_pages/'  # Gets the directory of where the web pages are stored
