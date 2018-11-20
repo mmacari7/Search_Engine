@@ -136,8 +136,8 @@ class WebCrawl:
             phrase = u"".join(phrase.strip())
             # Triggers event only if the string phrase is not empty or None
             if(phrase):
-                # Splits the phrase string up by space for individual words and punctuation and converts phrase to lower
-                phrase = re.findall(r"[\w']+|[.,!?;]", phrase.lower())
+                # Splits the phrase string up by space for individual words
+                phrase = phrase.lower().split(' ')
                 # Filter out the stop words from our phrase
                 wordFilter = [word for word in phrase if word not in stopwords.words('english')]
                 # Assure that the filtered array is not empty
