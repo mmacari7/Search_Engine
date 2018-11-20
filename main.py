@@ -71,19 +71,24 @@ class WebCrawl:
     def genTrie(self):
         # Creates a new instance of the Trie class / new Trie
         newTrie = Trie()
+        # Starts a counter
+        count = 1
+        # Gets number of files in directory to be scraped
+        webPageCount = len([name for name in os.listdir(self.directory)])
         # Iterates through the web pages in the directory
         for filename in os.listdir(self.directory):
             # Gets the full directory path of the current web-page
             fullDir = directory + filename
-            # TODO: This is where the print statements are
-            print(filename)
-            print(fullDir)
+            # Progress statement to indicate progress of scrape
+            print('Scraping page ' + str(count) + ' of ' + str(webPageCount) + ': ' + filename)
             # Calls function to get all visible text filtered and return resulting array of words for page
             wordArrAfterFilter = self.text_from_html(fullDir)
-            # For each of the words in the array
+            # For each of the words in the array from the page
             for word in wordArrAfterFilter:
                 # Add the word to our Trie
                 newTrie.addWord(word, filename)
+            # Increment the counter
+            count += 1
         # Returns the Trie just created from the web scrape
         return newTrie
 
@@ -123,17 +128,19 @@ class WebCrawl:
                 phrase = re.findall(r"[\w']+|[.,!?;]", phrase.lower())
                 # Filter out the stop words from our phrase
                 wordFilter = [word for word in phrase if word not in stopwords.words('english')]
+                # Assure that the filtered array is not empty
                 if(wordFilter):
+                    # Extend and adds words to the array to be returned
                     wordArray.extend(wordFilter)
+        # Returns our array of words
         return(wordArray)
-
-        #resWords.append(u" ".join(t.strip() for t in visible_text))
-        #return(resWords)
 
 if (__name__ == "__main__"):
     # Gets the directory of where our web pages are stored
     directory = os.getcwd() + '/crawled_pages/'  # Gets the directory of where the web pages are stored
+    print('One moment while we scrape the web and develop the database....')
     myCrawler = WebCrawl(directory)
-    print(myCrawler.searchTrie.searchForWord('far'))
-
+    print('Enter search term:')
+    searchWord = input()
+    print(myCrawler.searchTrie.searchForWord(searchWord))
 
