@@ -1,3 +1,7 @@
+"""
+Michael Macari
+Main program to run the search engine
+"""
 # Imports OS for computer file access
 import os
 # Imports regular expression for filtering
@@ -56,14 +60,22 @@ class Trie:
             return None
         return(rootSearch.occList)
 
+    # # Function used to search an entire phrase and return pages by rank
+    # def fullSearch(self, searchPhrase):
+    #     return
+
+
+
+
         # TODO: Possiblty impliment ranking algorithm every time a word is added, make the occ list a list of webpage:
         # TODO: occurence but in an array? Current rank is number of occurences
 # Creates a class for our web crawler
 class WebCrawl:
+
     def __init__(self, directory):
         # Gets passed the directory where the web pages are
         self.directory = directory
-        #self.webPageLinks = {}
+        self.webPageLinks = {}
         # Calls the genTrie function which will generate our Trie from the pages
         self.searchTrie = self.genTrie()
 
@@ -78,7 +90,7 @@ class WebCrawl:
         # Iterates through the web pages in the directory
         for filename in os.listdir(self.directory):
             # Gets the full directory path of the current web-page
-            fullDir = directory + filename
+            fullDir = self.directory + filename
             # Progress statement to indicate progress of scrape
             print('Scraping page ' + str(count) + ' of ' + str(webPageCount) + ': ' + filename)
             # Calls function to get all visible text filtered and return resulting array of words for page
@@ -135,12 +147,20 @@ class WebCrawl:
         # Returns our array of words
         return(wordArray)
 
+        # Function used to search an entire phrase and return pages by rank
+    def fullSearch(self, searchTerms):
+        return self.searchTrie.searchForWord('nuclear')
+
 if (__name__ == "__main__"):
     # Gets the directory of where our web pages are stored
     directory = os.getcwd() + '/crawled_pages/'  # Gets the directory of where the web pages are stored
     print('One moment while we scrape the web and develop the database....')
     myCrawler = WebCrawl(directory)
-    print('Enter search term:')
-    searchWord = input()
-    print(myCrawler.searchTrie.searchForWord(searchWord))
 
+    print('Enter search term:')
+    userIn = input().lower().split(' ')
+    print(userIn)
+    print(myCrawler.fullSearch(userIn))
+    # print(myCrawler.searchTrie.fullSearch(userIn))
+    #
+    # print(myCrawler.searchTrie.searchForWord(userIn))
