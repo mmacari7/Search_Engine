@@ -137,9 +137,11 @@ class WebCrawl:
             # Triggers event only if the string phrase is not empty or None
             if(phrase):
                 # Splits the phrase string up by space for individual words
-                phrase = phrase.lower().split(' ')
+                #phrase = re.findall(r"[\w']+|[.,!?;]", phrase.lower())
                 # Filter out the stop words from our phrase
-                wordFilter = [word for word in phrase if word not in stopwords.words('english')]
+                # wordFilter = [word for word in phrase if word not in stopwords.words('english')
+                #               and word not in ['!', '?', '.', ';', ',']]
+                wordFilter = self.phrase_punc_filt(phrase)
                 # Assure that the filtered array is not empty
                 if(wordFilter):
                     # Extend and adds words to the array to be returned
@@ -149,7 +151,13 @@ class WebCrawl:
 
         # Function used to search an entire phrase and return pages by rank
     def fullSearch(self, searchTerms):
+
         return self.searchTrie.searchForWord('nuclear')
+
+    def phrase_punc_filt(self, phraseToFilter):
+        phraseToFilter = re.findall(r"[\w']+|[.,!?;]", phraseToFilter.lower())
+        return([word for word in phraseToFilter if word not in stopwords.words('english')
+                and word not in ['!', '?', '.', ';', ',']])
 
 if (__name__ == "__main__"):
     # Gets the directory of where our web pages are stored
@@ -158,9 +166,9 @@ if (__name__ == "__main__"):
     myCrawler = WebCrawl(directory)
 
     print('Enter search term:')
-    userIn = input().lower().split(' ')
-    print(userIn)
-    print(myCrawler.fullSearch(userIn))
+    #userIn = input()
+    #print(wordFilter)
+    #print(myCrawler.fullSearch(userIn))
     # print(myCrawler.searchTrie.fullSearch(userIn))
     #
     # print(myCrawler.searchTrie.searchForWord(userIn))

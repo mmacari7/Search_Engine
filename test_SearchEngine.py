@@ -17,7 +17,7 @@ class TestSearchEngine(unittest.TestCase):
     expected_page3_words = ['one', 'simple', 'time', 'fruit', 'unique', 'fruit', 'apples',
                             'bananas', 'oranges', 'favorite']
     expected_page4_words = ['best', 'never', 'imagination', 'key', 'vikings', 'always', 'true',
-                            'warriors', 'early', 'years', 'tren2ban,', '.', 'ultimate']
+                            'warriors', 'early', 'years', 'tren2ban', 'ultimate']
 
     """Tests that the text in the web crawler is being properly scraped and filtered by tag"""
     def test_text_from_html(self):
