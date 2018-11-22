@@ -19,6 +19,7 @@ class TestSearchEngine(unittest.TestCase):
     expected_page4_words = ['best', 'never', 'imagination', 'key', 'vikings', 'always', 'true',
                             'warriors', 'early', 'years', 'tren2ban', 'ultimate']
 
+
     """Tests that the text in the web crawler is being properly scraped and filtered by tag"""
     def test_text_from_html(self):
         """Testing web page 1 for returned filtered text"""
@@ -112,7 +113,62 @@ class TestSearchEngine(unittest.TestCase):
 
         self.assertTrue(startTrue)
 
+    def test_phrase_punc_filt(self):
+        """Function for testing the phrase filter"""
+        test_search_phrase1 = "this would be considered a search phrase. ;; yes. HELLO"
+        expected_phrase1 = ['yes', 'hello', 'search', 'phrase', 'considered', 'would']
+        test_search_phrase2 = "duplicate duplicate. duplicate. duplicate. duplicate DUPLICATE"
+        expected_phrase2 = ['duplicate']
+        test_search_phrase3 = "      "
+        expected_phrase3 = []
+        test_search_phrase4 = ''
+        expected_phrase4 = []
 
+        test_nonSearchPhrase1 = "this would be an example of an. a HTML HTML HTML page phrase input"
+        expected_nsp1 = ['would', 'example', 'html', 'html', 'html', 'page', 'phrase', 'input']
+        test_nonSearchPhrase2 = " "
+        expected_nsp2 = []
+        test_nonSearchPhrase3 = "      nuclear          warhead"
+        expected_nsp3 = ['nuclear', 'warhead']
+        test_nonSearchPhrase4 = "these duplicate, should duplicate, keep, duplicate."
+        expected_nsp4 = ['duplicate', 'duplicate', 'duplicate', 'keep']
+
+        # Tests that each of the arrays returned contain the same words that the resulting array returned from function
+        # No duplicates
+        res1 = self.__class__.testCrawler.phrase_punc_filt(test_search_phrase1, user_input=True)
+        res1ctd = all(e in res1 for e in expected_phrase1) and len(res1) == len(expected_phrase1)
+
+        res2 = self.__class__.testCrawler.phrase_punc_filt(test_search_phrase2, user_input=True)
+        res2ctd = all(e in res2 for e in expected_phrase2) and len(res2) == len(expected_phrase2)
+
+        res3 = self.__class__.testCrawler.phrase_punc_filt(test_search_phrase3, user_input=True)
+        res3ctd = all(e in res3 for e in expected_phrase3) and len(res3) == len(expected_phrase3)
+
+        res4 = self.__class__.testCrawler.phrase_punc_filt(test_search_phrase4, user_input=True)
+        res4ctd = all(e in res4 for e in expected_phrase4) and len(res4) == len(expected_phrase4)
+
+        # W duplicates for web scraper
+        nsp1 = self.__class__.testCrawler.phrase_punc_filt(test_nonSearchPhrase1)
+        nsp1ctd = all(e in nsp1 for e in expected_nsp1) and len(nsp1) == len(expected_nsp1)
+
+        nsp2 = self.__class__.testCrawler.phrase_punc_filt(test_nonSearchPhrase2)
+        nsp2ctd = all(e in nsp2 for e in expected_nsp2) and len(nsp2) == len(expected_nsp2)
+
+        nsp3 = self.__class__.testCrawler.phrase_punc_filt(test_nonSearchPhrase3)
+        nsp3ctd = all(e in nsp3 for e in expected_nsp3) and len(nsp3) == len(expected_nsp3)
+
+        nsp4 = self.__class__.testCrawler.phrase_punc_filt(test_nonSearchPhrase4)
+        nsp4ctd = all(e in nsp4 for e in expected_nsp4) and len(nsp4) == len(expected_nsp4)
+
+        self.assertTrue(res1ctd)
+        self.assertTrue(res2ctd)
+        self.assertTrue(res3ctd)
+        self.assertTrue(res4ctd)
+
+        self.assertTrue(nsp1ctd)
+        self.assertTrue(nsp2ctd)
+        self.assertTrue(nsp3ctd)
+        self.assertTrue(nsp4ctd)
 
 if __name__ == '__main__':
     unittest.main()
