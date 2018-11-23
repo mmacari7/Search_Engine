@@ -189,7 +189,7 @@ if (__name__ == "__main__"):
     try:
         # Keep running searches unless keyboard interrupt is pressed
         while(True):
-            print('Enter search term or press Ctrl-C to exit: ')
+            print('\n Enter search term or press Ctrl-C to exit: ')
             # Gets the users search phrase
             userIn = input()
             # Removes stop words, and punctuation from user input, passing user_input=True removing duplicate words
@@ -214,7 +214,7 @@ if (__name__ == "__main__"):
                     # We then iterate through our sorted results
                     for v,k in search_result_sorted:
                         # And we output the web pages in descending order of occurrence
-                        output_file.write(k + '\n')
+                        output_file.write("%s: %d \n" % (k,v))
                         print("%s: %d" % (k, v))
     # CTRL-C Keyboard interrupt to end program
     except KeyboardInterrupt:

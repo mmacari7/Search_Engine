@@ -1,0 +1,47 @@
+Scraped page 1 of 8: Dragon_SpaceX.html
+Scraped page 2 of 8: Michelson_MorleyExperiment_Wikipedia.html
+Scraped page 3 of 8: NavigationControl_SpaceX.html
+Scraped page 4 of 8: OpticalCavity_Wikipedia.html
+Scraped page 5 of 8: QuantumLeap_Wikipedia.html
+Scraped page 6 of 8: Spacetime_Wikipedia.html
+Scraped page 7 of 8: SpecialRelativity_Wikipedia.html
+Scraped page 8 of 8: UnstableResonators_ Nature.html
+
+Searched for: '                                      '
+Results: Search terms contain no keywords. Please try again.
+
+Searched for: 'this the; that. I, am THE' 
+Results: Search terms contain no keywords. Please try again.
+
+Searched for: 'NUCLEAR'
+SpecialRelativity_Wikipedia.html: 2 
+Spacetime_Wikipedia.html: 2 
+Michelson_MorleyExperiment_Wikipedia.html: 1 
+
+Searched for: 'nuclear'
+SpecialRelativity_Wikipedia.html: 2 
+Spacetime_Wikipedia.html: 2 
+Michelson_MorleyExperiment_Wikipedia.html: 1 
+
+Searched for: 'nuc'
+Results: No web-page results 
+
+Searched for: 'NUc'
+Results: No web-page results 
+
+Searched for: 'nUcLeAR'
+SpecialRelativity_Wikipedia.html: 2 
+Spacetime_Wikipedia.html: 2 
+Michelson_MorleyExperiment_Wikipedia.html: 1 
+
+Searched for: 'spacetime nuclear'
+Spacetime_Wikipedia.html: 188 
+SpecialRelativity_Wikipedia.html: 71 
+QuantumLeap_Wikipedia.html: 2 
+Michelson_MorleyExperiment_Wikipedia.html: 1 
+
+Searched for: 'spacetime the THE; this. nuclear'
+Spacetime_Wikipedia.html: 188 
+SpecialRelativity_Wikipedia.html: 71 
+QuantumLeap_Wikipedia.html: 2 
+Michelson_MorleyExperiment_Wikipedia.html: 1 

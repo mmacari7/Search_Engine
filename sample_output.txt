@@ -1,4 +1,52 @@
-Scraped page 1 of 4: test_page1.html
-Scraped page 2 of 4: test_page2.html
-Scraped page 3 of 4: test_page3.html
-Scraped page 4 of 4: test_page4.html
+Scraped page 1 of 8: Dragon_SpaceX.html
+Scraped page 2 of 8: Michelson_MorleyExperiment_Wikipedia.html
+Scraped page 3 of 8: NavigationControl_SpaceX.html
+Scraped page 4 of 8: OpticalCavity_Wikipedia.html
+Scraped page 5 of 8: QuantumLeap_Wikipedia.html
+Scraped page 6 of 8: Spacetime_Wikipedia.html
+Scraped page 7 of 8: SpecialRelativity_Wikipedia.html
+Scraped page 8 of 8: UnstableResonators_ Nature.html
+
+Searched for:  I     am 
+Results: Search terms contain no keywords. Please try again.
+
+Searched for: searching for spacetime
+Spacetime_Wikipedia.html: 186 
+SpecialRelativity_Wikipedia.html: 69 
+QuantumLeap_Wikipedia.html: 2 
+
+Searched for: This; would seem like it is a good thing, meanwhile. SpaCETIME and nuclear
+Spacetime_Wikipedia.html: 239 
+SpecialRelativity_Wikipedia.html: 91 
+Michelson_MorleyExperiment_Wikipedia.html: 30 
+QuantumLeap_Wikipedia.html: 9 
+OpticalCavity_Wikipedia.html: 1 
+
+Searched for: Working out pretty well
+Spacetime_Wikipedia.html: 20 
+SpecialRelativity_Wikipedia.html: 5 
+QuantumLeap_Wikipedia.html: 4 
+OpticalCavity_Wikipedia.html: 3 
+Michelson_MorleyExperiment_Wikipedia.html: 3 
+Dragon_SpaceX.html: 2 
+UnstableResonators_ Nature.html: 1 
+
+Searched for: this the that
+Results: Search terms contain no keywords. Please try again.
+
+Searched for: cat hat dog
+Results: No web-page results 
+
+Searched for: goo
+Results: No web-page results 
+
+Searched for: nuc
+Results: No web-page results 
+
+Searched for: NUC
+Results: No web-page results 
+
+Searched for: nuclear
+SpecialRelativity_Wikipedia.html: 2 
+Spacetime_Wikipedia.html: 2 
+Michelson_MorleyExperiment_Wikipedia.html: 1 
